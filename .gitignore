@@ -1,1 +1,14 @@
-"node_modules/\n.env\n/dist\n/build" 
+# Node modules
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build outputs
+build/
+dist/
+
+# Logs
+*.log
+
+# Environment variables
+.env
