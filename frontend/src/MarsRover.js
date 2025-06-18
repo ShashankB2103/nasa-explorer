@@ -13,7 +13,7 @@ function MarsRover() {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [rover, setRover] = useState('curiosity'); // default rover
-  const [sol, setSol] = useState(1000);            // default sol
+  //const [sol, setSol] = useState(1000);            // default sol
   const [error, setError] = useState('');
   const [camera, setCamera] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState(null); // holds clicked photo
