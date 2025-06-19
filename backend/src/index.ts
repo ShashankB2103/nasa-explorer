@@ -5,6 +5,7 @@ import apodRoute from './routes/apod.route';
 import marsRouter from './routes/mars.route';
 import neoRouter from './routes/neo.route';
 import epicRouter from './routes/epic.route';
+import libraryRouter from './routes/library.route'
 
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.use('/api/apod', apodRoute);
 app.use('/api/mars', marsRouter);
 app.use('/api/neo', neoRouter);
 app.use('/api/epic', epicRouter);
+app.use('/api/library', libraryRouter);
 
 
 
