@@ -1,14 +1,18 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { connectToMongoDB } from './config/db';
+import authRouter from './routes/auth.route';
 import apodRoute from './routes/apod.route';
 import marsRouter from './routes/mars.route';
 import neoRouter from './routes/neo.route';
 import epicRouter from './routes/epic.route';
-import libraryRouter from './routes/library.route'
+import libraryRouter from './routes/library.route';
+
 
 
 dotenv.config();
+connectToMongoDB(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +24,8 @@ app.use('/api/mars', marsRouter);
 app.use('/api/neo', neoRouter);
 app.use('/api/epic', epicRouter);
 app.use('/api/library', libraryRouter);
+app.use('/api/auth', authRouter);
+
 
 
 
