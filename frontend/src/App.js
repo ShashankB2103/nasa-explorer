@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
-import Home from './Home';
-import Apod from './Apod';
-import MarsRover from './MarsRover';
-import NeoDashboard from './NeoDashboard';
-import EpicViewer from './EpicViewer';
-import LibrarySearch from './LibrarySearch';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import Home from './pages/Home';
+import Apod from './pages/Apod';
+import MarsRover from './pages/MarsRover';
+import NeoDashboard from './pages/NeoDashboard';
+import EpicViewer from './pages/EpicViewer';
+import LibrarySearch from './pages/LibrarySearch';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
+import { AuthContext } from './context/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // 🔍 On mount, check if user is already logged in
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
-  }, []);
-
-  //  Logout function
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    window.location.href = '/login'; //  force redirect after logout
-  };
+  const { isLoggedIn, logout } = useContext(AuthContext); //  Use object destructuring
 
   return (
     <Router>
@@ -46,7 +34,7 @@ function App() {
           {isLoggedIn ? (
             <>
               <NavLink to="/profile" className="btn btn-outline-light me-2">Profile</NavLink>
-              <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+              <button className="btn btn-danger" onClick={logout}>Logout</button>
             </>
           ) : (
             <>
@@ -76,7 +64,6 @@ function App() {
               </PrivateRoute>
             }
           />
- 
           <Route path="*" element={<div className="text-center mt-5">404 – Page Not Found</div>} />
         </Routes>
       </div>

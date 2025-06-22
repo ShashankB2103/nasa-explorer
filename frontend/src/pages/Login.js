@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext'; // ✅ Import AuthContext
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // ✅ Use login from context
 
-  //  Track form inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  //  Feedback messages
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -24,11 +23,12 @@ function Login() {
         password
       });
 
-      // Save JWT token in localStorage
+      // ✅ Save token and trigger global login state
       localStorage.setItem('token', res.data.token);
+      login(); // 🔥 This triggers navbar update immediately
 
       setSuccess('Login successful! Redirecting...');
-      setTimeout(() => navigate('/profile'), 1500); // redirect to profile page
+      setTimeout(() => navigate('/profile'), 1000);
     } catch (err) {
       const msg = err.response?.data?.message || 'Login failed';
       setError(msg);
