@@ -5,7 +5,7 @@ const marsRouter = Router();
 
 marsRouter.get('/', async (req: Request, res: Response) => {
   try {
-    const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
+    const apiKey = process.env.NASA_API_KEY;
     const { rover = 'curiosity', sol = '1000', camera } = req.query;
 
     // Construct the base NASA API URL

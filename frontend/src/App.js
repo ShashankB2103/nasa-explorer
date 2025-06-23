@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthContext } from './context/AuthContext';
+import logo from './assets/NASA-Logo-Large.png'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -20,7 +21,10 @@ function App() {
     <Router>
       {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-        <NavLink to="/" className="navbar-brand">NASA Space Explorer</NavLink>
+        <NavLink to="/" className="navbar-brand">
+        <img src={logo} alt="NASA Logo" height="40" className="me-2" />
+        NASA Space Explorer
+        </NavLink>
 
         <div className="navbar-nav me-auto">
           <NavLink to="/apod" className="nav-link">APOD</NavLink>

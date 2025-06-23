@@ -41,7 +41,7 @@ function NeoDashboard() {
 
   return (
     <div className="container py-4">
-      <h2 className="text-center mb-4">☄️ Near-Earth Objects Today</h2>
+      <h2 className="text-center mb-4">Near-Earth Objects Today</h2>
 
       {loading && <div className="text-center">Loading NEO data...</div>}
       {error && <div className="alert alert-danger text-center">{error}</div>}
@@ -73,7 +73,7 @@ function NeoDashboard() {
           </div>
 
           {/* Chart: Size of Asteroids */}
-          <h5 className="text-center">📊 Asteroid Size Distribution</h5>
+          <h5 className="text-center"> Asteroid Size Distribution</h5>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={chartData}>
               <XAxis dataKey="name" hide />

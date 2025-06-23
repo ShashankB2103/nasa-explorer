@@ -6,7 +6,7 @@ export interface AuthRequest extends Request {
 }
 
 export const requireAuth = (
-  req: Request,
+  req: AuthRequest,
   res: Response,
   next: NextFunction
 ): void => {
@@ -21,7 +21,7 @@ export const requireAuth = (
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string };
-    (req as AuthRequest).userId = decoded.userId;
+    req.userId = decoded.userId; // properly typed now
     next();
   } catch (err) {
     res.status(401).json({ message: 'Invalid token' });

@@ -25,7 +25,7 @@ function EpicViewer() {
 
   return (
     <div className="container py-4">
-      <h2 className="text-center mb-4">🌍 EPIC Earth Images</h2>
+      <h2 className="text-center mb-4">EPIC Earth Images</h2>
 
       <div id="epicCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">

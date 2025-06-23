@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
+    const apiKey = process.env.NASA_API_KEY ;
     const { date } = req.query;
 
     const nasaUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}${

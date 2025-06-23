@@ -1,17 +1,20 @@
 import { Router, Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
 import User from '../models/user.model';
 import { requireAuth, AuthRequest } from '../middleware/authMiddleware';
-import jwt from 'jsonwebtoken';
 
 const authRouter = Router();
 
 // POST /api/auth/register
-const handleRegister = async (req: Request, res: Response): Promise<any> => {
+const handleRegister = async (req: Request, res: Response): Promise<void> => {
   const { name, email, password } = req.body;
 
   try {
     const existing = await User.findOne({ email });
-    if (existing) return res.status(400).json({ message: 'User already exists' });
+    if (existing) {
+      res.status(400).json({ message: 'User already exists' });
+      return;
+    }
 
     const newUser = new User({ name, email, password });
     await newUser.save();
@@ -25,15 +28,15 @@ const handleRegister = async (req: Request, res: Response): Promise<any> => {
 
 authRouter.post('/register', handleRegister);
 
-
 // POST /api/auth/login
-const handleLogin = async (req: Request, res: Response): Promise<any> => {
+const handleLogin = async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      res.status(401).json({ message: 'Invalid credentials' });
+      return;
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, {
@@ -48,11 +51,26 @@ const handleLogin = async (req: Request, res: Response): Promise<any> => {
 };
 
 authRouter.post('/login', handleLogin);
-authRouter.get('/profile', requireAuth, async (req: AuthRequest, res: Response) => {
-  res.json({
-    message: 'Protected route accessed ✅',
-    userId: req.userId,
-  });
+
+// GET /api/auth/profile - Protected route
+authRouter.get('/profile', requireAuth, async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const user = await User.findById(req.userId);
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
+    res.json({
+      message: 'Protected route accessed',
+      userId: user._id,
+      name: user.name,
+      email: user.email,
+    });
+  } catch (err) {
+    console.error('Profile fetch error:', err);
+    res.status(500).json({ message: 'Failed to fetch profile' });
+  }
 });
 
 export default authRouter;

@@ -7,7 +7,7 @@ const neoRouter = Router();
 // Default: today’s date only
 neoRouter.get('/', async (req: Request, res: Response) => {
   try {
-    const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
+    const apiKey = process.env.NASA_API_KEY;
     const { start, end } = req.query;
 
     // Default to today if no date range is provided

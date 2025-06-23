@@ -17,7 +17,7 @@ interface EpicImage {
 
 epicRouter.get('/', async (_req: Request, res: Response) => {
   try {
-    const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
+    const apiKey = process.env.NASA_API_KEY;
     const metaUrl = `https://api.nasa.gov/EPIC/api/natural?api_key=${apiKey}`;
     const response = await axios.get(metaUrl);
 
