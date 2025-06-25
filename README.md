@@ -1,6 +1,6 @@
  NASA Space Explorer — Full-Stack Application
 
-This repository contains a full-stack application that integrates various NASA APIs to explore astronomy images, Mars rover data, Earth imagery, and more. The app features authentication, interactive filters, data visualization, and even an AI-generated space fact generator (Planned).
+This repository contains a full-stack application that integrates various NASA APIs to explore astronomy images, Mars rover data, Earth imagery, and more. The app features authentication, interactive filters, data visualization, and even an AI-generated space fact generator .
 
 
 
@@ -150,7 +150,7 @@ Protected Profile route with user info
 
 Navbar updates on login/logout
 
-AI Feature(Planned)
+AI Feature
 
 Space Fact Generator using Hugging Face’s GPT2 API
 

@@ -13,7 +13,7 @@ function MarsRover() {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [rover, setRover] = useState('curiosity'); // default rover
-  //const [sol, setSol] = useState(1000);            // default sol
+  const [sol, setSol] = useState(1000);            // default sol
   const [error, setError] = useState('');
   const [camera, setCamera] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState(null); // holds clicked photo
@@ -28,7 +28,7 @@ function MarsRover() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(`http://localhost:5000/api/mars?rover=${rover}&sol=${actualSol}${camera ? `&camera=${camera}` : ''}`);
+      const res = await axios.get(`http://localhost:5000/api/mars?rover=${rover}&sol=${sol}${camera ? `&camera=${camera}` : ''}`);
       setPhotos(res.data);
     } catch (err) {
       setError('Failed to load Mars Rover photos');
@@ -36,7 +36,7 @@ function MarsRover() {
     }
     setLoading(false);
   };
-  // ✅ Auto-fetch on page load
+  // Auto-fetch on page load
   useEffect(() => {
     fetchPhotos(); // Auto-load default photos (rover: curiosity, sol: 1000)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,8 +69,8 @@ function MarsRover() {
             type="number"
             className="form-control"
             min={0}
-            value={actualSol}
-            disabled
+            value={sol}
+            onChange={(e) => setSol(Number(e.target.value))}
           />
         </div>
         <div className="col-md-3">
@@ -116,7 +116,7 @@ function MarsRover() {
                 alt={`Mars by ${photo.rover.name}`}
                 className="card-img-top"
                 style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedPhoto(photo)} // 👈 open modal on click
+                onClick={() => setSelectedPhoto(photo)} // open modal on click
              />
 
               <div className="card-body">

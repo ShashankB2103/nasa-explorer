@@ -8,6 +8,7 @@ import marsRouter from './routes/mars.route';
 import neoRouter from './routes/neo.route';
 import epicRouter from './routes/epic.route';
 import libraryRouter from './routes/library.route';
+import spaceFactRouter from './routes/spaceFact.route';
 
 
 
@@ -26,6 +27,7 @@ app.use('/api/neo', neoRouter);
 app.use('/api/epic', epicRouter);
 app.use('/api/library', libraryRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/space-fact', spaceFactRouter);
 
 
 
