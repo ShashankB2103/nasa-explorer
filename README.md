@@ -160,10 +160,38 @@ Bonus Features (Challenge Checklist)
 
 
 
-Testing (Planned)
+Testing - 
 
-Jest for backend (unit & API test)
+Jest for backend (unit & API test)-
 
+Dependencies:
+
+npm install --save-dev jest ts-jest supertest @types/jest @types/supertest typescript ts-node
+Configuration at package.json
+"jest": {
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "moduleFileExtensions": ["ts", "js", "json"],
+  "testMatch": ["**/tests/**/*.test.ts"]
+}
+
+Test Directory Structure
+src/
+  └── tests/
+       ├── auth.test.ts
+       ├── apod.test.ts
+       ├── mars.test.ts
+       ├── neo.test.ts
+       ├── epic.test.ts
+       ├── library.test.ts
+       └── space-fact.test.ts
+
+
+Run Tests:
+
+npm run test  // from backend directory.
+To run tests in watch mode:
+npm run test -- --watch
 React Testing Library for frontend components
 
 Deployment (Planned)
@@ -172,7 +200,7 @@ Frontend: Vercel
 
 Backend: Render
 
-Commands Reference
+---Commands Reference
 
 Backend
 
@@ -182,7 +210,7 @@ Frontend
 
 npm start         # Start React development server
 
-Contributing
+---Contributing
 
 PRs and feedback welcome. This project was built as a showcase for full-stack skills, NASA API usage, JWT auth, and UI polish.
 
