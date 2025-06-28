@@ -12,7 +12,7 @@ function Apod() {
 
   useEffect(() => {
     setLoading(true);
-    const baseUrl = 'http://localhost:5000/api/apod';
+    const baseUrl = 'https://nasa-explorer-1-2yjv.onrender.com/api/apod';
     const url = selectedDate ? `${baseUrl}?date=${selectedDate}` : baseUrl;
      axios.get(url)
       .then(res => {

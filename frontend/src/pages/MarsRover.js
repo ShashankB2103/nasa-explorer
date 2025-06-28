@@ -28,7 +28,7 @@ function MarsRover() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(`http://localhost:5000/api/mars?rover=${rover}&sol=${sol}${camera ? `&camera=${camera}` : ''}`);
+      const res = await axios.get(`https://nasa-explorer-1-2yjv.onrender.com/api/mars?rover=${rover}&sol=${sol}${camera ? `&camera=${camera}` : ''}`);
       setPhotos(res.data);
     } catch (err) {
       setError('Failed to load Mars Rover photos');

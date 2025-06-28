@@ -11,7 +11,7 @@ function Home() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get('http://localhost:5000/api/space-fact');
+      const res = await axios.get('https://nasa-explorer-1-2yjv.onrender.com/api/space-fact');
       setFact(res.data.fact);
     } catch (err) {
       console.error(err);

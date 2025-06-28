@@ -31,7 +31,7 @@ function NeoDashboard() {
     setNeoData([]);
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/neo?start=${inputDate}&end=${inputDate}`);
+      const res = await axios.get(`https://nasa-explorer-1-2yjv.onrender.com/api/neo?start=${inputDate}&end=${inputDate}`);
       const allObjects = Object.values(res.data).flat();
       setNeoData(allObjects);
       setSelectedDate(inputDate);

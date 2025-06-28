@@ -17,7 +17,7 @@ function Profile() {
     }
 
     // Send token in Authorization header
-    axios.get('http://localhost:5000/api/auth/profile', {
+    axios.get('https://nasa-explorer-1-2yjv.onrender.com/api/auth/profile', {
       headers: {
         Authorization: `Bearer ${token}`
       }

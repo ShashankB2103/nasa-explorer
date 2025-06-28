@@ -18,7 +18,7 @@ function Login() {
     setSuccess('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await axios.post('https://nasa-explorer-1-2yjv.onrender.com/api/auth/login', {
         email,
         password
       });

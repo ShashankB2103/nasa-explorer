@@ -15,7 +15,7 @@ function LibrarySearch() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(`http://localhost:5000/api/library?search=${query}`);
+      const res = await axios.get(`https://nasa-explorer-1-2yjv.onrender.com/api/library?search=${query}`);
       setResults(res.data);
     } catch (err) {
       console.error(err);

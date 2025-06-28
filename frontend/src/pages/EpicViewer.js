@@ -8,7 +8,7 @@ function EpicViewer() {
 
   // Fetch EPIC image data from backend on load
   useEffect(() => {
-    axios.get('http://localhost:5000/api/epic')
+    axios.get('https://nasa-explorer-1-2yjv.onrender.com/api/epic')
       .then(res => {
         setImages(res.data);
         setLoading(false);
