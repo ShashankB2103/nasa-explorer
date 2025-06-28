@@ -7,7 +7,7 @@ function SpaceFact() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/space-fact')
+    axios.get('https://nasa-explorer-1-2yjv.onrender.com/api/space-fact')
       .then(res => setFact(res.data.fact))
       .catch(err => {
         console.error('Error fetching space fact:', err);
