@@ -181,7 +181,20 @@ You can now test backend routes like:
 ![NEO API Running](image-3.png)
 ![EPIC API Running](image-4.png)
 ![Space-fact API Running](image-5.png)
-
+![Frontend Homepage](image-6.png)
+![SpaceFact1](image-7.png)
+![SpaceFact2](image-8.png)
+![Apod Page](image-9.png)
+![Mars Page1](image-10.png)
+![Mars Page2](image-11.png)
+![Neos Page1](image-12.png)
+![Neos Page2](image-13.png)
+![EPIC Page](image-14.png)
+![Library Page](image-15.png)
+![Register Page](image-16.png)
+![Login Page1](image-17.png)
+![Login Page2](image-18.png)
+![Profile Page](image-19.png)
 Contributing
 
 Pull requests and feedback are welcome. This project was built as a demonstration of full-stack skills using modern APIs and authentication practices.
