@@ -172,12 +172,15 @@ You can now test backend routes like:
 
 /api/epic
 
-/api/library
-
 /api/space-fact
 
-
-
+10. Screenshots of app running live:
+![Backend running on render](image.png)
+![APOD API Running ](image-1.png)
+![Mars API Running](image-2.png)
+![NEO API Running](image-3.png)
+![EPIC API Running](image-4.png)
+![Space-fact API Running](image-5.png)
 
 Contributing
 
