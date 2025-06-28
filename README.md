@@ -197,6 +197,11 @@ You can now test backend routes like:
 ![Profile Page](image-19.png)
 Contributing
 
+11. Future Plans
+- Frontend testing using React Testing Library or Jest
+- Improving profile page, adding options of saving images as favourite and other features
+- Containerization and orchestration
+
 Pull requests and feedback are welcome. This project was built as a demonstration of full-stack skills using modern APIs and authentication practices.
 
 Contact
